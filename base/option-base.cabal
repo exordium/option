@@ -1,0 +1,26 @@
+cabal-version: 2.2
+name: option-base
+homepage: https://github.com/exordium/option#readme
+version: 0.1.0.0
+category: Exordium
+synopsis: GHC's Maybe type compatible with option-sig
+stability: cursed
+bug-reports: https://github.com/exordium/option/issues
+author: Dai
+maintainer: daig@sodality.cc
+copyright: 2018 Sodality
+license: MIT
+
+source-repository head
+  type: git
+  location: https://github.com/exordium/option
+
+common x
+  default-language: Haskell2010
+  default-extensions: DataKinds,NoImplicitPrelude,MagicHash
+
+library
+  import: x
+  exposed-modules: Base.Option
+  reexported-modules: Base.Bool as Sig.Bool
+  build-depends: base,bool-base

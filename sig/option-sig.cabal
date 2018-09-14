@@ -1,0 +1,22 @@
+cabal-version: 2.2
+name: option-sig
+homepage: https://github.com/exordium/option#readme
+version: 0.1.0.0
+category: Exordium
+synopsis: Backpack signature for an Option datatype
+stability: cursed
+bug-reports: https://github.com/exordium/option/issues
+author: Dai
+maintainer: daig@sodality.cc
+copyright: 2018 Sodality
+license: MIT
+
+source-repository head
+  type: git
+  location: https://github.com/exordium/option
+
+library
+  default-language: Haskell2010
+  default-extensions: NoImplicitPrelude
+  signatures: Sig.Option, Sig.Bool
+  build-depends: bool-sig

@@ -1,0 +1,32 @@
+cabal-version: 2.2
+name: option-church
+homepage: https://github.com/exordium/option#readme
+version: 0.1.0.0
+category: Exordium
+synopsis: Church encoded options compatible with option-sig
+stability: cursed
+bug-reports: https://github.com/exordium/option/issues
+author: Dai
+maintainer: daig@sodality.cc
+copyright: 2018 Sodality
+license: MIT
+
+source-repository head
+  type: git
+  location: https://github.com/exordium/option
+
+common x
+  default-language: Haskell2010
+  default-extensions: RankNTypes,NoImplicitPrelude, BlockArguments, PatternSynonyms, ViewPatterns
+
+library core
+  import: x
+  hs-source-dirs: core
+  exposed-modules: OptionCore
+
+library
+  import: x
+  exposed-modules: Church.Option
+  reexported-modules: Church.Option as Sig.Option
+  build-depends: core, option-utils, bool-church
+  mixins: option-utils requires (Sig.Option as OptionCore,Sig.Bool as Church.Bool)
